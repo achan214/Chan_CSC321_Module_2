@@ -6,6 +6,7 @@ def pad_pkcs7(data, block_size):
     x = len(data) % block_size
     pad_length = block_size - x
     return data + (chr(pad_length) * pad_length).encode()
+    #return data + bytes([pad_length]) * pad_length
 
 def unpad_pkcs7(padded_data, block_size):
     # Check if padded_data is empty or invalid
